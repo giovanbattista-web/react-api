@@ -7,8 +7,12 @@ function App() {
   const fetchTodos = () => {
     axios.get("https://lanciweb.github.io/demo/api/actors/")
       .then((response) => setTodos(response.data));
-
   }
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
   return (
     <>
       <ul>
