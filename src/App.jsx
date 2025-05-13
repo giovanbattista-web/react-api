@@ -3,6 +3,12 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [todos, setTodos] = useState([]);
+
+  const fetchTodos = () => {
+    axios.get("https://lanciweb.github.io/demo/api/actors/")
+      .then((response) => setTodos(response.data));
+
+  }
   return (
     <>
       <ul>
