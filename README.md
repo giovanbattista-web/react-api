@@ -17,3 +17,9 @@ riconoscimenti
 
 MILESTONE 3
 Mostriamo in pagina una card per ciascun attore, con grafica a piacimento!
+
+BONUS 1
+Stampare sia una lista delle attrici che degli attori, separatamente.
+
+BONUS 2
+Stampare un’unica lista che contiene attori e attrici insieme!
