@@ -9,6 +9,9 @@ const Main = () => {
     const [actresses, setActresses] = useState([]);
     const [actors, setActors] = useState([]);
 
+    // bonus 2
+    const [cast, setCast] = useState([]);
+
     // definizione della funzione che effettua la chiamata ajax
     const getActress = () => {
         axios.get(actressEndpoint).then((resp) => {
@@ -29,31 +32,37 @@ const Main = () => {
         getActors();
     }, []);
 
+    useEffect(() => {
+        setCast([...actresses, ...actors]);
+    }, [actresses, actors]);
+
     return (
         <div className='container'>
             <div className='row mt-4'>
                 <div className='col-12'>
-                    <h2>Attrici</h2>
+                    {/* <h2>Attrici</h2> */}
+                    <h2>Cast</h2>
                 </div>
             </div>
             <div className='row g-3'>
-                {actresses.map((actress) => {
+                {/* {actresses.map((actress) => { */}
+                {cast.map((person) => {
                     return (
                         <>
-                            <div key={`actress- ${actress.id}`} className='col-12 col-md-6 col-lg-3'>
+                            <div key={`person- ${person.id}`} className='col-12 col-md-6 col-lg-3'>
                                 <div className='bg-black text-white'>
                                     <div className='card-image'>
-                                        <img src={actress.image} className='img-fluid' />
+                                        <img src={person.image} className='img-fluid' />
                                     </div>
                                     <div className='card-info'>
-                                        <h3>{actress.name}</h3>
+                                        <h3>{person.name}</h3>
                                         <p>
-                                            <em>Birth Year: {actress.birth_year}</em>
+                                            <em>Birth Year: {person.birth_year}</em>
                                             <br />
-                                            Nationality: {actress.nationality}
+                                            Nationality: {person.nationality}
                                         </p>
-                                        <p>{actress.biography}</p>
-                                        <p>{actress.awards}</p>
+                                        <p>{person.biography}</p>
+                                        <p>{person.awards}</p>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +70,7 @@ const Main = () => {
                     )
                 })}
             </div>
-            <div className='row mt-4'>
+            {/* <div className='row mt-4'>
                 <div className='col-12'>
                     <h2>Attori</h2>
                 </div>
@@ -83,14 +92,14 @@ const Main = () => {
                                             Nationality: {actor.nationality}
                                         </p>
                                         <p>{actor.biography}</p>
-                                        <p>{actor.awards}</p>
+                                        <p>{actor.awards.join(", ")}</p>
                                     </div>
                                 </div>
                             </div>
                         </>
                     )
                 })}
-            </div>
+            </div> */}
         </div>
     );
 };
