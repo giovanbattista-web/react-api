@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import React from 'react';
 import axios from 'axios';
 
 const actressEndpoint = 'https://lanciweb.github.io/demo/api/actresses/'
